@@ -1,6 +1,8 @@
 <?php
 
-if (isset($_POST['Upload'])){ 
+$id = $_GET['id'] ; 
+
+if (isset($_POST['Upload'])){ s
 
 include"bai8.php"; 
 
@@ -16,10 +18,12 @@ $path = 'upload/';
 if( !is_dir( $path ) ){
 	mkdir( $path, 0777 );
 }
-$rid = $_POST['id'] ; 
+
+
+
 $upload = move_uploaded_file($_FILES['myfile']['tmp_name'],$path.$_FILES['myfile']['name'] ) ;
 
-	$query = mysql_query("UPDATE `user_info` SET `Image` = '$name'  WHERE `ID` = $rid ");
+	$query = mysql_query("UPDATE `user_info` SET `Image` = '$name'  WHERE `ID` = $id ");
 	if ($query) {
 		header('location:bai14.php');
 	     
@@ -29,20 +33,7 @@ $upload = move_uploaded_file($_FILES['myfile']['tmp_name'],$path.$_FILES['myfile
 }
 
 
-
-
 }
-
-
-if ($_GET) {
-	$id = $_GET['id'];
-
-
-}
-
-
-
-
 
 ?>
 
@@ -51,9 +42,8 @@ if ($_GET) {
 <title> Upload file trên PHP</title>
 
 
-<form action = "bai15.php" method = "POST" enctype="multipart/form-data">
+<form action = "bai15.php?id=<?= $id ?>" method = "POST" enctype="multipart/form-data" name = 'id'>
 
-<input type='hidden' name = 'id' value='<?=$id?>'  />
 
 Chọn File : <input type="file" name="myfile" size = "20"/><br />
  <input type="submit" value="Upload" name ="Upload" ></form>

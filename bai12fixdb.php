@@ -61,13 +61,6 @@
      </head>
     <body>
     <h1>Dữ liệu mới </h1>
-    <form  method="GET" action="bai12fixdb.php">
-          <td> Điền Id:</td>
-          <td><input type="readonly" size="10" name="ID"></td></form>
-  
-        
-   
-   
     <form action  method="POST" action="bai12fixdb.php">
     <table>
     <tr>
