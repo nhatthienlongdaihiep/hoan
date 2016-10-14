@@ -12,6 +12,7 @@ if (isset($_POST['search'])) {
 //echo $query ; die;
 
  $query_run = mysql_query($query);
+ $row = mysql_num_rows($query_run);
 
 
  
@@ -21,17 +22,13 @@ if (isset($_POST['search'])) {
 
 <?php
 
-
-$row = mysql_num_rows($query_run);
-
 if ($row >  0 ) 
-{?>
+{
 
 
-  <td><strong>Username</strong></td><? 
+    ///<td><strong>Username</strong></td>
 
-
-  while($query_ex =mysql_fetch_array($query_run))
+ while($query_ex =mysql_fetch_array($query_run))
   { ?>
     <tr>
 
@@ -42,14 +39,4 @@ if ($row >  0 )
 
 
 <?php } ?> 
-
-
-
-
-
-
-
-
-
-
 
