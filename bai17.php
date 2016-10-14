@@ -6,9 +6,8 @@ $query = "SELECT * FROM `user_info` " ;
 if (isset($_POST['search'])) {
 
   $search_term = mysql_real_escape_string($_POST['search_box']);
-  $query .= " WHERE `Username` = '$search_term' " ; 
-  $query .= " OR  `ID` = '$search_term' " ;
-  $query .= " OR  `Surname` = '$search_term' " ;
+  $query .= " WHERE `Username` = '$search_term' LIKE '%".$_POST["search"]."%' " ; 
+  
 }
 //echo $query ; die;
 
@@ -22,26 +21,35 @@ if (isset($_POST['search'])) {
 
 <?php
 
-  
-  
+
+$row = mysql_num_rows($query_run);
+
+if ($row >  0 ) 
+{?>
+
+
+  <td><strong>Username</strong></td><? 
+
+
   while($query_ex =mysql_fetch_array($query_run))
   { ?>
     <tr>
 
-  <td><?php echo $query_ex['ID'];?></td>
+  
   <td><?php echo $query_ex['Username'];?></td>
-  <td><?php echo $query_ex['Surname'];?></td>
-  <td><?php echo $query_ex['Password'];?></td>
-  
-
-  
-  
-</tr>
+     </tr>
+  }
 
 
-  <?php } ?>
-
-  
+<?php } ?> 
 
 
-  </table>
+
+
+
+
+
+
+
+
+
