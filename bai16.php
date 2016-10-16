@@ -24,7 +24,7 @@
                     success : function (data){
                         // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
                         // đó vào thẻ div có id = query_ex
-                        $('#query_ex').html(data);
+                        $('#query_ex').html(data); 
                     }
                 });
             } 

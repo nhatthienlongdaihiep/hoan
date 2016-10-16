@@ -24,19 +24,22 @@ if (isset($_POST['search'])) {
 
 if ($row >  0 ) 
 {
+    
 
+    ?> <h4 align="center">Search Result</h4>  
+      <div class="table-responsive">  
+      <table class="table table bordered"> 
 
-    ///<td><strong>Username</strong></td>
+    <tr><td><strong>Username</strong></td></tr>
 
- while($query_ex =mysql_fetch_array($query_run))
+ <?php while($query_ex =mysql_fetch_assoc($query_run))
   { ?>
     <tr>
 
   
   <td><?php echo $query_ex['Username'];?></td>
      </tr>
-  }
 
-
-<?php } ?> 
+    <?php } ?> 
+ <?php } ?>  
 
