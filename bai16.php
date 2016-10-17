@@ -19,12 +19,12 @@
                     type : "post", // chọn phương thức gửi là post
                     dateType:"text", // dữ liệu trả về dạng text
                     data : { // Danh sách các thuộc tính sẽ gửi đi
-                         search : $('#search').val()
+                         search : $('#search_box').val()
                     },
                     success : function (data){
                         // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
                         // đó vào thẻ div có id = query_ex
-                        $('#query_ex').html(data); 
+                        return $('#data').html(data); 
                     }
                 });
             } 
@@ -33,12 +33,12 @@
        </script>
     </head>
     <body>
-        <div id="query_ex">
+        <div id="data">
             Thông tin sẽ được load ở đây
         </div>
         <br/>
         Search : <input type="text" name="search_box" value=""/>
-        <input type="submit" name="search" id="clickme" onclick="load_ajax()" value="Tim kiếm"/>
+        <input type="submit" name="search" id="search" onclick="load_ajax()" value="Tim kiếm"/>
 
 
 
