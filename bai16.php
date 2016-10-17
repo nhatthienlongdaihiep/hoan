@@ -12,28 +12,34 @@
      <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
        <script language="javascript">
              
-            function load_ajax()
-            {
-                $.ajax({
-                    url : "bai17.php", // gửi ajax đến file bai17.php
-                    type : "post", // chọn phương thức gửi là post
-                    dateType:"text", // dữ liệu trả về dạng text
-                    data : { // Danh sách các thuộc tính sẽ gửi đi
-                         search : $('#search_box').val()
-                    },
-                    success : function (data){
-                        // Sau khi gửi và kết quả trả về thành công thì gán nội dung trả về
-                        // đó vào thẻ div có id = query_ex
-                        return $('#data').html(data); 
-                    }
-                });
-            } 
+
+            function load_ajax()
+{
+    // URL
+    var url = "bai17.php";
+ 
+    // Data
+    var data = {
+        id : $('#search_box').val()
+    };
+ 
+    // Success Function
+    var success = function (result){
+        $('#result').html(result);
+    };
+ 
+    // Result Type
+    var dataType = 'text';
+ 
+    // Send Ajax
+    $.post(url, data, success, dataType);
+}
     
 
        </script>
     </head>
     <body>
-        <div id="data">
+        <div id="result">
             Thông tin sẽ được load ở đây
         </div>
         <br/>

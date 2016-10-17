@@ -1,13 +1,11 @@
 <?php
 
-
 include 'bai8.php';
-
 $query = "SELECT * FROM `user_info` " ;
 if (isset($_POST['search'])) {
 
-  $search_term = mysql_real_escape_string($_POST['search_box']);
-  $query .= " WHERE `Username` = '$search_term' LIKE '%".$_POST["search"]."%' " ; 
+  $search_term = mysql_real_escape_string($_POST['search']);
+  $query .= " WHERE `Username` = '$search_term' " ; 
   
 }
 //echo $query ; die;
@@ -28,7 +26,7 @@ if ($row >  0 )
     
 
     ?> <h4 align="center">Search Result</h4>  
-      <div class="table-responsive">  </div>
+      <div class="table-responsive">  
       <table class="table table bordered"> 
 
     <tr><td><strong>Username</strong></td></tr>
@@ -39,7 +37,6 @@ if ($row >  0 )
 
   
   <td><?php echo $query_ex['Username'];?></td>
-  <td><?php echo $query_ex['ID']; ?></td>
      </tr>
 
     <?php } ?> 
