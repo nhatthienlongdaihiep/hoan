@@ -15,24 +15,18 @@
 
             function load_ajax()
 {
-    // URL
-    var url = "bai17.php";
- 
-    // Data
-    var data = {
-        id : $('#search_box').val()
-    };
- 
-    // Success Function
-    var success = function (result){
-        $('#result').html(result);
-    };
- 
-    // Result Type
-    var dataType = 'text';
- 
-    // Send Ajax
-    $.post(url, data, success, dataType);
+    $.ajax({
+        type : 'POST',
+        dataType : 'json',
+        url : 'bai17.php',
+        data : 'id=' + $('#search_box').val(),
+        success : function(data) {
+
+            $('#data').html(result);
+            
+        }
+
+    });
 }
     
 
@@ -43,8 +37,8 @@
             Thông tin sẽ được load ở đây
         </div>
         <br/>
-        Search : <input type="text" name="search_box" value=""/>
-        <input type="submit" name="search" id="search" onclick="load_ajax()" value="Tim kiếm"/>
+        Search : <input type="text" name=search_box id="search_box" value="" class = "form-control"/>
+        <input type="submit" name="search" id="clickme" onclick="load_ajax()" value="Tim kiếm"/>
 
 
 

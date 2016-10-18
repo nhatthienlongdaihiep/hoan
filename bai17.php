@@ -5,7 +5,7 @@ $query = "SELECT * FROM `user_info` " ;
 if (isset($_POST['search'])) {
 
   $search_term = mysql_real_escape_string($_POST['search']);
-  $query .= " WHERE `Username` = '$search_term' " ; 
+  $query .= " WHERE `Username` LIKE '%".$search_term."%' " ; 
   
 }
 //echo $query ; die;
